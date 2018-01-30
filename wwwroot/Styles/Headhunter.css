@@ -1,0 +1,18 @@
+﻿#HeadhunterHead {
+    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+#HeadhunterText {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+    #HeadhunterText {
+        font-size: 20px;
+    }
+}

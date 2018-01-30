@@ -1,0 +1,18 @@
+﻿#VvedeineHead {
+    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+#VvedeineText {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+    #VvedeineText {
+        font-size: 20px;
+    }
+}

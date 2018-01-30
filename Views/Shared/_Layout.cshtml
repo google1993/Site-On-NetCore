@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="theme-color" content="#16144" />
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="icon" href="~/Images/Icon.png" />
+
+    <link rel="stylesheet" href="~/Styles/Navbar.css" />
+
+    <link rel="stylesheet" href="~/Content/Prettify/prettify.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Fonts/Open-Sans.css" />
+    <link rel="stylesheet" href="~/Fonts/Beer.css" />
+
+    @RenderSection("Insert_Styles", required: false)
+
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg p-0">
+        <a class="navbar-brand p-0" href="@Url.Action("Index", "Start")">
+            <img src="Images/Navbar-logo.png" alt="Logo" height="50" />
+        </a>
+        <a class="navbar-toggler align-self-stretch" href="" data-toggle="collapse" data-target="#NavbarButton">
+            <img class="align-self-center" src="Images/Navbar-hamburger.png"
+                 alt="Hamburger" height="36" style="margin: 4px 0px" />
+        </a>
+
+        <div class="collapse navbar-collapse" id="NavbarButton">
+            <ul class="navbar-nav text-center ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Vvedenie", "Start")">Введение</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Canvas", "Start")">Canvas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Life", "Start")">Жизнь</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("HeadHunter", "Start")">HeadHunter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("ContactUs", "Start")">Contact Me</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <script src="~/Scripts/umd/popper.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Prettify/run_prettify.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

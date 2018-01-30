@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Контактная форма";
+}
+@model NewWebSite.Models.SMail
+
+
+<div id="Contact" class="container" style="background-color: #060433; min-width: 400px">
+    <div class="row" style="background-color: #161443;">
+        <div id="ContactHead" class="col-12 text-center mt-5">
+            Контактная форма
+        </div>
+    </div>
+    <div class="row">
+        <div id="ContactText" class="col-12" style="background-color: #161443;">
+            <p class="text-center">
+                Если вы оказались на этой странице,
+                то напишите пожалуйста мне свои пожелания и коментарии о данном сайте.
+            </p>
+        </div>
+    </div>
+
+    <form asp-antiforgery="true" asp-route="contactus" class="row
+          justify-content-left align-items-center mb-3">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div id="ContactText" class="col-12 mt-3 col-md-6 col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Email</span>
+                <input asp-for="Email" type="text" class="form-control" />
+            </div>
+        </div>
+        <div id="ContactText" class="col-12 col-md-6 col-lg-8 mt-md-3">
+            <span id="ErrorM" asp-validation-for="Email"></span>
+        </div>
+
+        <div id="ContactText" class="col-12 mt-3 col-lg-7">
+            <div class="input-group">
+                <span class="input-group-addon">Тема:</span>
+                <input asp-for="Subject" type="text" class="form-control" />
+            </div>
+        </div>
+        <div id="ContactText" class="col-12 col-lg-5 mt-lg-3">
+            <span id="ErrorM" asp-validation-for="Subject"></span>
+        </div>
+
+        <div id="ContactText" class="col-12 mt-3 col-md-5 col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">Текст сообщения</span>
+            </div>
+        </div>
+        <div id="ContactText" class="col-12 col-lg-9 col-md-7 mt-mb-5">
+            <span id="ErrorM" asp-validation-for="Text"></span>
+        </div>
+
+        <div id="ContactText" class="col-12">
+            <textarea asp-for="Text" class="form-control" rows="10"></textarea>
+        </div>
+
+
+        <div id="ContactText" class="col-12 mt-1">
+            <input type="submit" class="btn btn-light" value="Отправить" />
+        </div>
+    </form>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="ContactText" class="col-12" style="background-color: #161443;">
+            <p class="text-justify mt-3">
+                Валидация формы проходит в два этапа. Первая валидация проходит через Jquery.validation
+                на стороне клиента. Вторая валидация проходит в контроллере на стороне сервера.
+                Для отправки сообщения собран отдельно dll файл в котором используется библиотека MailKit.
+                это сделано для сохранения пароля от почты. Ниже представлено ихображение с кодом функции
+                в dll файле.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="ContactText" class="col-12 mt-3">
+            <p class="text-center">
+                <img src="~/Images/Contact-src.jpg" class="img-fluid" />
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="ContactText" class="col-12" style="background-color: #161443;">
+            <p class="text-center mt-3">
+                Исходный код данного проекта находится здесь:
+            </p>
+            <p class="text-center mt-3">
+                <a class="btn btn-light" href="~/Sources/LabRab.zip"> Site </a>
+                <a class="btn btn-light" href="~/Sources/HH.zip"> HeadHunter </a>
+                <a class="btn btn-light" href="~/Sources/Life.zip"> Life </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Insert_Styles{
+    <link rel="stylesheet" href="~/Styles/Contact.css" />
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

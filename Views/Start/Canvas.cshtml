@@ -1,0 +1,389 @@
+﻿@{
+    ViewData["Title"] = "Canvas";
+}
+
+<div id="Canvas" class="container" style="background-color: #060433; min-width: 400px">
+    <div class="row" style="background-color: #161443;">
+        <div id="CanvasHead" class="col-12 text-center mt-5">
+            Canvas
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="CanvasText" class="col-12" style="background-color: #161443;">
+            <p class="text-center">
+                Элемент Canvas, добавленный в HTML5, предназначен для создания графики с помощью JavaScript. Например, его используют для
+                рисования графиков, создания фотокомпозиций, анимаций и даже обработки и рендеринга видео в реальном времени.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center mb-3">
+
+        <div id="CanvasText" class="col-12">
+            <div class="row">
+
+                <div class="col-12">
+                    <p class="text-justify mt-3">
+                        Пример1: Это простой пример использования CanvasRenderingContext2D.fillRect() метода.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 mt-3 mb-1">
+            <canvas id="example1" class="bg-dark" height="200" width="400" style="width:inherit"></canvas>
+        </div>
+
+        <div class="col-12 col-md-4  col-lg-6 m-0 p-0">
+            <div class="row justify-content-center">
+                <div class="col-11 text-center mb-2">
+                    <input id="example1_edit" class="btn btn-light" type="button" value="Edit" />
+                    <input id="example1_reset" class="btn btn-light" type="button" value="Reset" />
+                    <a class="btn btn-light" href="https://jsfiddle.net/google_12345/j752attL/">Code</a>
+                </div>
+                <div class="col-11">
+                    <textarea id="example1_code" style="min-height:300px; width:inherit">
+ctx1.fillStyle = "red";
+ctx1.fillRect(10, 10, 50, 50);
+ctx1.fillStyle = "yellow";
+ctx1.fillRect(70, 10, 50, 50);
+ctx1.fillStyle = "green";
+ctx1.fillRect(10, 70, 50, 50);
+ctx1.fillStyle = "blue";
+ctx1.fillRect(70, 70, 50, 50);
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                Элемент &lt;canvas&gt; выглядит как элемент &lt;img&gt;, но его отличие в том, что он не имеет атрибутов src и alt.
+                Элемент &lt;canvas&gt; имеет только два атрибута - ширину и высоту. Оба они не обязательны и могут быть выставлены
+                с использованием свойств DOM. Если атрибуты высоты и ширины не установлены, canvas будет по умолчанию шириной 300
+                писелей и в высоту 150 пикселей. Вы так же можете выставить размеры произвольно в CSS, но во время рендеринга
+                изображение будет масштабироваться в соответствии с его размером и ориентацией.
+            </p>
+            <p class="text-justify">
+                Атрибут id не специфичен для элемента &lt;canvas&gt;, но он может быть применен по умолчанию в атрибутах HTML, так
+                как он может быть использован (почти) для любого элемента HTML (так же как класс). Это всегда отличная идея использовать
+                id, так как это позволяет намного проще идентифицировать наш элемент в сценарии.
+            </p>
+            <p class="text-justify">
+                Элемент &lt;canvas&gt; может быть стилизован также, как любое изображение (margin, border, background, и т. д.).
+                Эти правила, как бы то ни было, фактически не влияют на отрисовку в canvas. Мы увидим как это сделано позже в этом
+                руководстве. Когда стили не указаны, canvas будет по умолчанию абсолютно прозрачным.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                Из-за того, что старые браузеры (в особенности, версии Internet Explorer раннее чем 9) не поддерживают элемент
+                &lt;canvas&gt;, Вам следует предоставить запасное содержимое для отображения этими браузерами.
+            </p>
+            <p class="text-justify">
+                Это очень просто: мы всего лишь предоставляем альтернативное содержимое внутри элемента &lt;canvas&gt;. Браузеры,
+                которые не поддерживают &lt;canvas&gt; проигнорируют container и отобразят запасное содержимое этого тега. Браузеры,
+                которые поддерживают &lt;canvas&gt; проигнорируют запасное содержимое, и просто нормально отобразят canvas.
+            </p>
+        </div>
+
+        <div id="CanvasText" class="col-12 col-md-5 col-lg-4">
+            <p class="text-justify">
+                Например, мы можем предоставить текстовое описание содержимого canvas или предоставить статичное изображение
+                динамически отображаемого содержимого. Это может выглядеть как-то так:
+            </p>
+        </div>
+        <div id="CanvasText" class="col-12 col-md-7 col-lg-8">
+            <p class="bg-dark pl-3 mb-0">
+                HTML
+            </p>
+<pre class="bg-light">
+<code class="prettyprint lang-html mt-0">&lt;canvas id="stockGraph" width="150" height="150"&gt;
+    current stock price: $3.15 +0.15
+&lt;/canvas&gt;
+
+&lt;canvas id="clock" width="150" height="150"&gt;
+    &lt;img src="images/clock.png" width="150" height="150" alt="" /&gt;
+&lt;/canvas&gt;</code></pre>
+        </div>
+
+        <div id="CanvasText" class="col-12">
+            <p class="text-justify">
+                Сообщать пользователю о том, что его браузер не поддерживает canvas не поможет тем, кто не может прочесть
+                содержимое тега canvas, к примеру. Предоставление полезной информации в дополнительном canvas делает этот
+                тег более доступным для широкого использования.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                В отличии от элемента &lt;img&gt;, элемент &lt;canvas&gt;  требует закрывающийся тег (&lt;/canvas&gt;). Если этот
+                тег не предоставлен, остаток документа будет считаться запасным контентом и не будет отображен.
+            </p>
+            <p class="text-justify">
+                Если запасной контент не нужен, простой  &lt;canvas id="foo" ...&gt;&lt;/canvas&gt; полностью совместим со всеми
+                браузерами, что поддерживают canvas.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="CanvasHead" class="col-12 text-center mt-3">
+            Рисование фигур
+        </div>
+        <div id="CanvasText" class="col-12 col-md-7 col-lg-8 mt-3">
+            <p class="text-justify">
+                Теперь, установив наше окружение canvas, мы можем погрузиться в детали того, как рисовать в canvas. Перед тем как
+                мы начнем рисовать, нам нужно поговорить о сетке canvas или координатной плоскости. На картинке можно увидеть canvas
+                с сеткой, накладываемой по умолчанию. Обычно 1 единица на сетке соответствует 1 пикселю на canvas. Начало координат
+                этой сетки расположено в верхнем левом углу в координате (0,0 ). Все элементы размещены относительно этого начала.
+                Таким образом, положение верхнего левого угла синего квадрата составляет х пикселей слева и у пикселей сверху,
+                на координате (х, у).
+            </p>
+        </div>
+        <div class="col-12 col-md-5 col-lg-4">
+            <img class="rounded mx-auto d-block" src="~/Images/Canvas/Canvas_default_grid.png" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                В отличие от SVG, &lt;canvas&gt; поддерживает только одну примитивную фигуру: прямоугольник. Все другие фигуры должны
+                быть созданы комбинацией одного или большего количества контуров (paths), набором точек, соединенных в линии.
+                К счастью в ассортименте рисования контуров у нас есть  функции, которые делают возможным составление очень сложных фигур.
+            </p>
+
+            <p class="text-justify">
+                Сначала рассмотрим прямоугольник. Ниже представлены три функции рисования прямоугольников в canvas:
+            </p>
+            <p class="text-justify">
+                fillRect(x, y, width, height) - Рисование заполненного прямоугольника.
+            </p>
+            <p class="text-justify">
+                strokeRect(x, y, width, height) - Рисование прямоугольного контура.
+            </p>
+            <p class="text-justify">
+                clearRect(x, y, width, height) - Очистка прямоугольной области, делая содержимое совершенно прозрачным.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center mb-3">
+
+        <div id="CanvasText" class="col-12">
+            <div class="row">
+
+                <div class="col-12">
+                    <p class="text-justify mt-3">
+                        Пример2: Создание прямоугольных фигур
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 mt-3 mb-1">
+            <canvas id="example2" class="bg-dark" height="200" width="400" style="width:inherit"></canvas>
+        </div>
+
+        <div class="col-12 col-md-4  col-lg-6 m-0 p-0">
+            <div class="row justify-content-center">
+                <div class="col-11 text-center mb-2">
+                    <input id="example2_edit" class="btn btn-light" type="button" value="Edit" />
+                    <input id="example2_reset" class="btn btn-light" type="button" value="Reset" />
+                    <a class="btn btn-light" href="https://jsfiddle.net/google_12345/8ccbrc93/">Code</a>
+                </div>
+                <div class="col-11">
+                    <textarea id="example2_code" style="min-height:300px; width:inherit">
+ctx2.fillRect(25,25,100,100);
+ctx2.clearRect(45,45,60,60);
+ctx2.strokeRect(50,50,50,50);
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                Остальные примитивные фигуры создаются контурами. Контур - это набор точек, которые, соединяясь в отрезки линий,
+                могут образовывать различные фигуры, изогнутые или нет, разной ширины и разного цвета. Контур (или субконтур)
+                может быть закрытым.
+            </p>
+            <p class="text-justify">
+                Здесь приведены функции, которые можно использовать в описанных шагах:
+            </p>
+            <p class="text-justify">
+                beginPath() - Создает новый контур. После создания используется в дальнейшем командами рисования при построении контуров.
+            </p>
+            <p class="text-justify">
+                Path методы - Методы для установки различных контуров объекта.
+            </p>
+            <p class="text-justify">
+                closePath() - Закрывает контур, так что будущие команды рисования вновь направлены контекст.
+            </p>
+            <p class="text-justify">
+                stroke() - Рисует фигуру с внешней обводкой.
+            </p>
+            <p class="text-justify">
+                fill() - Рисует фигуру с заливкой внутренней области.
+            </p>
+            <p class="text-justify">
+                Первый шаг создания контура заключается в вызове функции beginPath(). Внутри содержатся контуры в виде
+                набора суб-контуров (линии, дуги и др.), которые вместе образуют форму фигуры. Каждый вызов этого метода
+                очищает набор, и мы можем начинать рисовать новые фигуры.
+            </p>
+            <p class="text-justify">
+                Вторым шагом является вызов методов, определяемых видом контура, который нужно нарисовать.
+            </p>
+            <p class="text-justify">
+                Третий и необязательный шаг - это вызов closePath(). Этот метод пытается закрыть фигуру, рисуя прямую линию
+                из текущей точки в начальную. Если фигура была уже закрыта или является просто точкой, то функция ничего не делает.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center mb-3">
+
+        <div id="CanvasText" class="col-12">
+            <div class="row">
+
+                <div class="col-12">
+                    <p class="text-justify mt-3">
+                        Пример3: Создание различных элементов.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 mt-3 mb-1">
+            <canvas id="example3" class="bg-dark" height="150" width="150" style="width:inherit"></canvas>
+        </div>
+
+        <div class="col-12 col-md-4  col-lg-6 m-0 p-0">
+            <div class="row justify-content-center">
+                <div class="col-11 text-center mb-2">
+                    <a class="btn btn-light" href="https://jsfiddle.net/google_12345/xp57x3n9/">Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="CanvasHead" class="col-12 text-center mt-3">
+            Анимации
+        </div>
+
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                Вероятно, самым большим ограничением является то, что когда фигура нарисована, её уже нельзя двигать.
+                Чтобы изобразить движение нам нужно перерисовать фигуру и всё, что было нарисовано до неё. Перерисовка
+                сложных кадров занимает много времени, и производительность сильно зависит от скорости компьютера, на
+                котором она выполняется.
+            </p>
+            <p class="text-justify">
+                Ниже перечислены необходимые шаги для того, чтобы нарисовать кадр:
+            </p>
+            <p class="text-justify">
+                <strong>Очистить canvas</strong>
+            </p>
+            <p class="text-justify">
+                Если фигура, которую вы собираетесь нарисовать, не занимает всю площадь canvas (как фон, например), то всё
+                что было нарисовано ранее необходимо стереть. Проще всего это сделать при помощи метода clearRect().
+            </p>
+            <p class="text-justify">
+                <strong>Сохранить изначальное состояние canvas</strong>
+            </p>
+            <p class="text-justify">
+                Если вы изменяете любые настройки (такие как стили, трансформации и т.п.), которые затрагивают состояние canvas
+                и вы хотите убедиться, что оригинальное состояние используется каждый раз, когда был отрисован кадр, то вам
+                следует сохранить это оригинальное состояние.
+            </p>
+            <p class="text-justify">
+                <strong>Нарисовать анимированные фигуры</strong>
+            </p>
+            <p class="text-justify">
+                Шаг на котором вы собственно отрисовываете кадр.
+            </p>
+            <p class="text-justify">
+                <strong>Восстановить состояние canvas</strong>
+            </p>
+            <p class="text-justify">
+                Если вы сохраняли состояние, восстановите его, прежде чем отрисовывать новый кадр.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="CanvasText" class="col-12 mt-3">
+            <p class="text-justify">
+                Фигуры отрисовываются на canvas либо напрямую — при помощи методов canvas, либо с помощью сторонних функций.
+                В нормальной ситуации результат станет виден на canvas после окончания выполнения скрипта. К примеру, цикл for
+                использовать для анимации нельзя. Это значит, нужен способ выполнения функций отрисовки через интервалы
+                времени. Для этоого есть функции window.setInterval(), window.setTimeout(), и window.requestAnimationFrame(),
+                которые могут быть использованы для вызова некоторой функции, через заданный промежуток времени.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center mb-3" style="background-color: #161443;">
+        <div id="CanvasText" class="col-12">
+            <div class="row">
+
+                <div class="col-12">
+                    <p class="text-justify mt-3">
+                        Пример4: Упращенная солнечная система.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-6 mt-3 mb-1">
+            <canvas id="example4" class="bg-dark" height="300" width="300" style="width:inherit"></canvas>
+        </div>
+
+        <div class="col-12 col-md-4  col-lg-6 m-0 p-0">
+            <div class="row justify-content-center">
+                <div class="col-11 text-center mb-2">
+                    <a class="btn btn-light" href="https://jsfiddle.net/google_12345/9bf1Lbm8/">Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="CanvasText" class="col-12 mt-3 mb-5">
+            <p class="text-center">
+                Данной информации достаточно для создания игры "Жизнь". Для более глубокого изучения Canvas можно обратиться к
+                <a href="https://developer.mozilla.org/ru/docs/Web/API/Canvas_API"> данному </a> материалу.
+            </p>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@section Insert_Styles{
+    <link rel="stylesheet" href="~/Styles/Canvas.css" />
+}
+
+@section Scripts{
+
+    <script src="~/js/canvas_page.js"></script>
+    <script src="~/js/example1.js"></script>
+    <script src="~/js/example2.js"></script>
+    <script src="~/js/example3.js"></script>
+    <script src="~/js/example4.js"></script>
+}

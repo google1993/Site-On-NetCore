@@ -1,0 +1,26 @@
+﻿body {
+    /*overflow-x: hidden;*/
+    background-color: #375880;
+    background-image: url("/Images/Header-bg.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    background-color: #b7b7b7;
+}
+
+    nav div ul li a {
+        color: #303030;
+        font-family: "Open Sans";
+        font-size: 25px;
+        font-weight: 700;
+        transition-property: background-color;
+        transition-duration: 1s;
+    }
+
+        nav div ul li a:hover {
+            color: #303030;
+            background-color: #fbfbfb;
+        }

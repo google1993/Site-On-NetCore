@@ -1,0 +1,176 @@
+﻿@{
+    ViewData["Title"] = "Game of Life";
+}
+
+<div id="Life" class="container" style="background-color: #060433; min-width: 400px">
+    <div class="row" style="background-color: #161443;">
+        <div id="LifeHead" class="col-12 text-center mt-5">
+            Игра Жизнь
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="LifeText" class="col-12" style="background-color: #161443;">
+            <p class="text-center">
+                Игра «Жизнь» (англ. Conway's Game of Life) — клеточный автомат, придуманный английским математиком
+                Джоном Конвеем в 1970 году.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div id="LifeHead" class="col-12 text-center mt-3">
+            Правила
+        </div>
+        <div id="LifeText" class="col-12">
+            <p class="text-justify">
+                Место действия этой игры — «вселенная» — это размеченная на клетки поверхность или плоскость — безграничная,
+                ограниченная, или замкнутая (в пределе — бесконечная плоскость).
+            </p>
+            <p class="text-justify">
+                Каждая клетка на этой поверхности может находиться в двух состояниях: быть «живой» (заполненной) или быть
+                «мёртвой» (пустой). Клетка имеет восемь соседей, окружающих её.
+            </p>
+            <p class="text-justify">
+                Распределение живых клеток в начале игры называется первым поколением. Каждое следующее поколение
+                рассчитывается на основе предыдущего по таким правилам:
+            </p>
+            <p class="text-justify">
+                <ul>
+                    <li>
+                        В пустой (мёртвой) клетке, рядом с которой ровно три живые клетки, зарождается жизнь;
+                    </li>
+                    <li>
+                        Если у живой клетки есть две или три живые соседки, то эта клетка продолжает жить; в
+                        противном случае, если соседей меньше двух или больше трёх, клетка умирает («от одиночества» или «от перенаселённости»)
+                    </li>
+                </ul>
+            </p>
+            <p class="text-justify">
+                Игра прекращается, если:
+            </p>
+            <p class="text-justify">
+                <ul>
+                    <li>
+                        На поле не останется ни одной «живой» клетки
+                    </li>
+                    <li>
+                        Конфигурация на очередном шаге в точности (без сдвигов и поворотов) повторит себя
+                        же на одном из более ранних шагов (складывается периодическая конфигурация)
+                    </li>
+                    <li>
+                        При очередном шаге ни одна из клеток не меняет своего состояния (складывается
+                        стабильная конфигурация; предыдущее правило, вырожденное до одного шага назад)
+                    </li>
+                </ul>
+            </p>
+            <p class="text-justify">
+                Эти простые правила приводят к огромному разнообразию форм, которые могут возникнуть в игре.
+            </p>
+            <p class="text-justify">
+                Игрок не принимает прямого участия в игре, а лишь расставляет или генерирует начальную
+                конфигурацию «живых» клеток, которые затем взаимодействуют согласно правилам уже без
+                его участия (он является наблюдателем).
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center" style="background-color: #161443;">
+        <div id="LifeHead" class="col-12 text-center mt-3">
+            Игра на Canvas и JS
+        </div>
+        <div id="LifeText" class="col-6 col-lg-3 mb-1">
+            <div class="input-group">
+                <span class="input-group-addon">Точек в шир:</span>
+                <input id="canvas_x" type="text" class="form-control" size="5" value="40" />
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-6 col-lg-3 mb-1">
+            <div class="input-group">
+                <span class="input-group-addon">Точек в выс:</span>
+                <input id="canvas_y" type="text" class="form-control" size="5" value="60" />
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-6 col-lg-3 mb-1">
+            <div class="input-group">
+                <span class="input-group-addon">Размер точки:</span>
+                <input id="canvas_dot" type="text" class="form-control" size="5" value="10" />
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-6 col-lg-3 mb-1">
+            <div class="input-group">
+                <span class="input-group-addon">Замкнутая:</span>
+                <span class="input-group-addon">
+                    <input id="canvas_elapsed" type="checkbox" checked />
+                </span>
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-6 col-lg-2 mt-1 mb-1">
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Generate
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a id="empty" class="dropdown-item">Empty</a>
+                    <a id="random" class="dropdown-item">Random</a>
+                    <a class="dropdown-divider"></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-6 col-lg-1 mt-1 mb-1">
+            <a class="btn btn-light" href="https://jsfiddle.net/google_12345/f0mvnrm5/">Code</a>
+        </div>
+
+        <div id="LifeText" class="col-12 col-lg-9 mt-1 mb-1">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button id="pause" class="btn btn-light" type="button">
+                        &#10074;&#10074;
+                    </button>
+                </span>
+                <span class="input-group-btn">
+                    <button id="start" class="btn btn-light" type="button">
+                        &#10097;
+                    </button>
+                </span>
+                <input id="time_cycle" type="text" size="5" value="100" />
+                <span class="input-group-addon">ms.</span>
+                <span class="input-group-btn">
+                    <button id="step" class="btn btn-light" type="button">
+                        &#10097;&#10073;
+                    </button>
+                </span>
+                <span class="input-group-btn">
+                    <button id="jump" class="btn btn-light" type="button">
+                        &#10097;&#10097;&#10073;
+                    </button>
+                </span>
+                <input id="count_step" type="text" size="5" value="100" />
+                <span class="input-group-addon">step.</span>
+            </div>
+        </div>
+
+        <div id="LifeText" class="col-12 mt-1 mb-1">
+            <div class="input-group">
+                <span class="input-group-addon">Цикл жизни:</span>
+                <span id="count_life" class="input-group-addon">0</span>
+            </div>
+        </div>
+
+        <canvas id="canvas" class="mt-1 mb-3 ml-3 mr-3"></canvas>
+    </div>
+</div>
+
+
+@section Insert_Styles{
+    <link rel="stylesheet" href="~/Styles/Life.css" />
+}
+
+@section Scripts{
+    <script src="~/js/Life.js"></script>
+}
