@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Scripts\" />
-    <Folder Include="wwwroot\Sources\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url("/Fonts/Open-Sans/OpenSans-Bold.ttf") format('truetype');
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url("/Fonts/Open-Sans/OpenSans-Regular.ttf") format('truetype');
+    font-style: normal
+}

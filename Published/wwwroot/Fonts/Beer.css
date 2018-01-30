@@ -1,0 +1,7 @@
+﻿@font-face {
+    font-family: 'Beer';
+    src: url(/Fonts/Beer/BeerRegular.eot) format('embedded-opentype');
+    src: url(/Fonts/Beer/BeerRegular.ttf) format('truetype');
+    src: url(/Fonts/Beer/BeerRegular.woff) format('woff');
+    font-style: normal;
+}
